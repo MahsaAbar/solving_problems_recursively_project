@@ -35,8 +35,22 @@ console.log(x[0] === y[0]) // true
 
 
 ***********************************************************************/
-
-// your code here
+const  duplicate = (array, i=0, newArr= [])=>{
+  if(array.length === i){
+    return newArr
+  }else{
+    if(Array.isArray(array[i])){
+      newArr.push(duplicate(array[i], 0, newArr))
+    }else{
+      newArr.push(array[i])
+      duplicate(array, i+1, newArr)
+    }
+    return newArr
+  }
+};
+let deepDup = (arr) => {
+  return duplicate(arr)
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

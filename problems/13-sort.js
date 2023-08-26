@@ -27,14 +27,19 @@ const sort = (nums, sorted = []) => {
   if(nums.length === 0){
     return sorted
   }else{
-    if(nums[0] < nums[1]){
-    min = nums[0]
-    return sort(nums.slice(1))
-    }else{
-      min = nums[1]
-    }
+    let min = Infinity;
+    let minIndex = 0;
+
+    nums.forEach(el =>{
+      if(min > el){
+        min = el;
+        minIndex = nums.indexOf(el)
+      }
+    })
+    nums.splice(minIndex, 1)
+    sorted.push(min);
+    return sort(nums, sorted)
   }
-  return nums.splice(min,1)
 } 
 
 console.log(sort([4,1,6,3,1,7])); // [1, 1, 3, 4, 6, 7]

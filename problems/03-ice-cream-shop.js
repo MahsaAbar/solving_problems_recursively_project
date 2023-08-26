@@ -13,8 +13,18 @@ iceCreamShop([], 'honey lavender'); // false
 ***********************************************************************/
 
 
-// your code here
-
+const iceCreamShop = (array, flavor)  =>{
+  
+  if(array.length > 0){
+      if(array[0] === flavor){
+        return true;
+      }else{
+        return iceCreamShop(array.slice(1),flavor);
+      }
+  }else{
+    return false;
+  }
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

@@ -10,10 +10,22 @@ range(3, 4); // [3]
 range(7, 6); // []
 ***********************************************************************/
 
+const range  = (start, end) =>{
 
-// your code here
+  if(end < start){
+    return  []
+  }else if (start < end){
+    let  newrange = range(start+1, end);
+    newrange.unshift(start)
+    return newrange
+  }else{
+    return range(start+1, end)
+  }
+};
 
-
+console.log(range(1, 5)); // [1, 2, 3, 4]
+console.log(range(3, 4)); // [3]
+console.log(range(7, 6)); // []
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = range;
